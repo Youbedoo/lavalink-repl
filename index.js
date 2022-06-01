@@ -8,7 +8,7 @@ const url2 = "https://github.com/shyiko/jabba/raw/master/install.sh"
 const start = () => {
     const download = stream(url2).pipe(createWriteStream('jabba.sh'));
     download.on("finish", () => {
-        execSync("java -jar Lavalink.jar", { stdio: "inherit" });
+        execSync("bash -s -- --skip-rc && . ~/.jabba/jabba.sh", { stdio: "inherit" });
     });
 };
 
